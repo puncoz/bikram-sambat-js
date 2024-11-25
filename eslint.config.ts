@@ -1,13 +1,15 @@
+import { includeIgnoreFile } from "@eslint/compat"
 import eslint from "@eslint/js"
+import * as path from "node:path"
 import tsEslint from "typescript-eslint"
+
+const gitIgnorePath = path.resolve(__dirname, ".gitignore")
 
 export default tsEslint.config(
   eslint.configs.recommended,
   ...tsEslint.configs.strictTypeChecked,
   ...tsEslint.configs.stylisticTypeChecked,
-  {
-    ignores: ["dist/*", "dist-tsup/*", "**/*.d.ts", "**/*.test.ts", "**/*.spec.ts"],
-  },
+  includeIgnoreFile(gitIgnorePath),
   {
     languageOptions: {
       parserOptions: {

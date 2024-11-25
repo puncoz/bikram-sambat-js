@@ -24,31 +24,35 @@
     "url": "https://puncoz.com/",
     "email": "info@puncoz.com"
   },
+  "main": "./dist/bikram-sambat.cjs.js",
+  "module": "./dist/bikram-sambat.esm.js",
+  "types": "./dist/bikram-sambat.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/bikram-sambat.cjs.js",
+      "import": "./dist/bikram-sambat.esm.js",
+      "types": "./dist/bikram-sambat.d.ts",
+      "default": "./dist/bikram-sambat.umd.js"
+    },
+    "./iife": {
+      "import": "./dist/bikram-sambat.iife.js",
+      "types": "./dist/bikram-sambat.d.ts"
+    },
+    "./cjs": {
+      "require": "./dist/bikram-sambat.cjs.js",
+      "types": "./dist/bikram-sambat.d.cts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=18.12.0",
     "npm": "please-use-yarn",
     "yarn": ">=4.5.2"
   },
   "type": "module",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": {
-        "module": "./dist/bikram-sambat.es.js",
-        "types": "./dist/index.d.ts"
-      },
-      "require": {
-        "module": "./dist/bikram-sambat.umd.js",
-        "types": "./dist/index.d.ts"
-      }
-    }
-  },
-  "main": "./dist/bikram-sambat.umd.js",
-  "module": "./dist/bikram-sambat.es.js",
-  "types": "./dist/index.d.ts",
-  "typings": "./dist/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "postinstall": "husky",
     "prepack": "pinst --disable",
@@ -60,6 +64,7 @@
     "build": "yarn clean && rollup --config rollup.config.ts --configPlugin typescript --bundleConfigAsCjs"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.2.3",
     "@eslint/js": "^9.15.0",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
