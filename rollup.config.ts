@@ -12,8 +12,9 @@ const input = path.resolve(__dirname, "src/index.ts")
 
 // define external dependencies (dependencies that should not be included in the bundle)
 const external = [
-  ...Object.keys(pkg.devDependencies || {}),
+  ...Object.keys(pkg.devDependencies),
 ]
+
 const config = defineConfig([
   {
     input,
