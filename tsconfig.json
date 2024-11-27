@@ -8,16 +8,17 @@
     ],
     "module": "ESNext",
     "moduleResolution": "node",
-    "outDir": "dist",
-    "rootDir": "src",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     },
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "./src/@types"
     ],
     "types": [
       "node"
@@ -37,12 +38,12 @@
     "sourceMap": false,
     // declaration options
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "./dist",
     "declarationMap": true,
     "emitDeclarationOnly": true,
     // advanced options
     "incremental": true,
-    "tsBuildInfoFile": "debug/.tsbuildinfo",
+    "tsBuildInfoFile": "./debug/.tsbuildinfo",
     "isolatedModules": true,
     "skipLibCheck": false,
     "verbatimModuleSyntax": true,
@@ -51,10 +52,7 @@
     "resolveJsonModule": true
   },
   "include": [
-    "src/**/*",
-    "rollup.config.ts",
-    "eslint.config.ts",
-    "tsup.config.ts"
+    "**/*.ts",
   ],
   "exclude": [
     "node_modules",
